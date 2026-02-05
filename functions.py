@@ -84,19 +84,33 @@ def taylor_approximation(function, degree, left_endpoint, right_endpoint):
 
     return sp.simplify(polynomial)
 
-def to_desmos_format(expression):
+def to_desmos_format(expression, degree = "", letter = ""):
     s = str(expression)
     s = s.replace("**", "^")
     s = s.replace("*", "")
 
+    if degree == "":
+        function_name = f"{letter}{degree}"
+    else:
+        function_name = f"{letter}_{degree}"
+
+    s = f"{function_name}(x) = {s}"
+
     return s
 
-def create_json(function, legendre, taylor):
+def create_json(function, degree, legendre, taylor, left_endpoint, right_endpoint):
+    interval = f"\\left\\{{{left_endpoint}\\le x\\le {right_endpoint}\\right\\}}"
+    legendre_error  = f"\\sqrt{{\\int_{{{left_endpoint}}}^{{{right_endpoint}}}\\left(f\\left(x\\right)-P_{{{degree}}}\\left(x\\right)\\right)^{{2}}dx}}"
+    taylor_error = f"\\sqrt{{\\int_{{{left_endpoint}}}^{{{right_endpoint}}}\\left(f\\left(x\\right)-T_{{{degree}}}\\left(x\\right)\\right)^{{2}}dx}}"
+
     with open("functions.json", "w") as f:
         json.dump({
-            "function": to_desmos_format(function),
-            "legendre": to_desmos_format(legendre),
-            "taylor": to_desmos_format(taylor)
+            "function": to_desmos_format(function, "", "f"),
+            "legendre": to_desmos_format(legendre, degree, "P"),
+            "taylor": to_desmos_format(taylor, degree, "T"),
+            "interval": interval,
+            "legendre_error": legendre_error,
+            "taylor_error": taylor_error
         }, f, indent = 4)
     
     print("Functions saved to functions.json")
@@ -114,6 +128,6 @@ def main():
     print("Taylor approximation:")
     print(taylor)
 
-    create_json(f, legendre, taylor)
+    create_json(f, n, legendre, taylor, left_endpoint, right_endpoint)
 
 main()

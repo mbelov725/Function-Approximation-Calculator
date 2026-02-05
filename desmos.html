@@ -1,0 +1,61 @@
+<!-- Step 1: include our secure javascript file -->
+<script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=02b578b8563542f3bbf7967817969ae3"></script>
+
+<!-- Step 2: add an element to the page -->
+<body style="margin:0; overflow:hidden;">
+  <div
+    id="calculator"
+    style="
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    ">
+  </div>
+</body>
+
+<!-- Step 3: add the following lines of javascript -->
+<script>
+    var elt = document.getElementById('calculator');
+    var calculator = Desmos.GraphingCalculator(elt);
+    calculator.setExpression({ id: 'circle1', latex: 'x^2 + y^2 < 1' });
+    calculator.setExpression({ id: 'circle2', latex: '(x-1)^2 + (y-1)^2 < 1' });
+    calculator.setExpression({
+    type: 'table',
+    columns: [
+        {
+        latex: 'x',
+        values: ['1', '2', '3', '4', '5']
+        },
+        {
+        latex: 'y',
+        values: ['1', '4', '9', '16', '25'],
+        dragMode: Desmos.DragModes.XY
+        },
+        {
+        latex: 'x^2',
+        color: Desmos.Colors.BLUE,
+        columnMode: Desmos.ColumnModes.LINES
+        }
+    ]
+    });
+
+    calculator.setExpression({
+        id: '1',
+        latex: 'y=x',
+        color: Desmos.Colors.BLUE
+    });
+
+    calculator.setExpression({
+        id: '2',
+        latex: 'y=x + 1',
+        color: '#ff0000'
+    });
+
+    calculator.setExpression({
+        id: '3',
+        latex: 'y=\\sin(x)',
+        color: '#E027F5'
+    });
+</script>

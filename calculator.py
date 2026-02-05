@@ -112,16 +112,20 @@ def legendre_approximation(function, degree, left_endpoint, right_endpoint):
     return sp.simplify(polynomial)
 
 def taylor_approximation(function, degree, left_endpoint, right_endpoint):
-    centre = (left_endpoint - right_endpoint)/2
+    centre = (left_endpoint + right_endpoint)/2
 
     polynomial = 0
 
     f_numeric = sp.lambdify(x, function, "numpy")
 
     for i in range(degree + 1):
-        derivative = sp.diff(f_numeric, x, i).subs(x, centre)
+        derivative = sp.diff(function, x, i).subs(x, centre)
 
-    pass
+        term = (derivative/sp.factorial(i))*(x - centre)**i
+
+        polynomial += term
+
+    return sp.simplify(polynomial)
 
 def main():
     f = get_user_function()

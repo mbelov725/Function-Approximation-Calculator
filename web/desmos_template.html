@@ -1,0 +1,53 @@
+<script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=YOUR_API_KEY"></script>
+
+<body style="margin:0; overflow:hidden;">
+  <div
+    id="calculator"
+    style="
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    ">
+  </div>
+</body>
+
+<script>
+    var elt = document.getElementById('calculator');
+    var calculator = Desmos.GraphingCalculator(elt);
+
+    fetch("./functions.json", { cache: "no-store" })
+        .then(res => res.json())
+        .then(data => {
+            calculator.setExpression({
+                id: "original_function",
+                latex: data.function + data.interval,
+                color: Desmos.Colors.BLUE
+            });
+
+            calculator.setExpression({ 
+                id: "legendre_approximation",
+                latex: data.legendre + data.interval,
+                color: Desmos.Colors.GREEN,
+                lineStyle: Desmos.Styles.DASHED
+            });
+
+            calculator.setExpression({
+                id: "taylor_approximation",
+                latex: data.taylor + data.interval,
+                color: Desmos.Colors.RED,
+                lineStyle: Desmos.Styles.DASHED
+            });
+
+            calculator.setExpression({
+                id: "legendre_error",
+                latex: data.legendre_error
+            })
+
+            calculator.setExpression({
+                id: "taylor_error",
+                latex: data.taylor_error
+            })
+        });
+</script>

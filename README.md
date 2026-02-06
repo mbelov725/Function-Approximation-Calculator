@@ -36,9 +36,10 @@ distance between the two vectors. The best option is something called an orthogo
 projection. This is kind of like casting a shadow of the vector $\vec{v}$ onto the
 subspace $U$.
 
-### Finding an Orthonormal Basis for the Non-Polynomials
+### Finding an Orthonormal Basis for the Polynomials
 First, we need to find an orthonormal basis for $U$. Orthonormal means that for any
-two vectors in the subspace, their dot product is 0. Using an orthonormal basis allows our calculations
+two vectors in the subspace, their dot product is 0. Using an orthonormal basis, instead of
+something like ${1, x, x^2, ... , x^n}$ allows our calculations
 to be much simpler.
 
 Defining the dot

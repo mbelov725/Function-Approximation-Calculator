@@ -30,7 +30,7 @@ def get_user_interval():
 
 def get_user_polynomial_degree():
     MIN_DEGREE = 2
-    MAX_DEGREE = 5
+    MAX_DEGREE = 7
     
     while True:
         degree = input(f"Please enter the degree of the polynomial approximation ({MIN_DEGREE}-{MAX_DEGREE}): ")

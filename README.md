@@ -149,7 +149,7 @@ Interestingly enough, if we look at the demo, the Legendre approximation for $\s
 
 1. Clone the repository
    ```bash
-   git clone https://github.com/your-username/function-approximation.git
+   git clone https://github.com/mbelov725/Function-Approximation-Calculator.git
 3. Install SymPy, SciPy, and dotenv if neccessary
    ```bash
    py -m pip install sympy

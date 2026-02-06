@@ -123,9 +123,9 @@ Interestingly enough, if we look at the demo, the Legendre approximation for $\s
   * Users can enter any mathematical function over a given interval
   * Note:
     * Prefix inverse trigonometric functions with ```-a```, e.g. write $\arcsin(x)$ as ```asin(x)```
-    * For $e^x$, write ```exp(x)```
-    * For $n^x$, write ```n**x```
-    * For $\ln(x)$, wrtie ```log(x)```
+    * Write $e^x$ as ```exp(x)```
+    * Write $n^x$ as ```n**x```
+    * Write $\ln(x)$ as ```log(x)```
     * Make sure that the function is defined on the given interval
     * You may need to modify some of the formatting in Desmos after
 * Polynomial approximations
@@ -135,7 +135,7 @@ Interestingly enough, if we look at the demo, the Legendre approximation for $\s
   * Approximations are converted into Desmos-compatible LaTeX
   * Users can copy or view the exact formulas
 * JSON export and HTML template
-  * All generated functions, approximations, and interval info are saved to ```functions.json```
+  * All generated functions, approximations, and interval data are saved to ```functions.json```
   * This data is updated to ```desmos_template.html```
 * Desmos visualization
   * Interactive plotting of the original function and Taylor and Legendre approximations

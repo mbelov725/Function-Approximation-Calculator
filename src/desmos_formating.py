@@ -11,7 +11,7 @@ def to_desmos_format(expression, degree = "", letter = ""):
     s = s.replace("cot", "\\cot")
     s = s.replace("asin", "\\arcsin")
     s = s.replace("acos", "\\arccos")
-    s = s.replace("atan", "\\arctan")
+    s = s.replace("a\\tan", "\\arctan")
     s = s.replace("acsc", "\\arccsc")
     s = s.replace("asec", "\\arcsec")
     s = s.replace("acot", "\\arccot")

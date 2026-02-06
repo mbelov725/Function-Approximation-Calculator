@@ -42,7 +42,7 @@ two vectors in the subspace, their dot product is 0. Using an orthonormal basis,
 something like
 
 $$
-\{1, x, x^2, \dots, x^n\}
+\left\{ 1, x, x^2, \dots, x^n \right\}
 $$
 
 allows our calculations

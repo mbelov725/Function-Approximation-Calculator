@@ -124,6 +124,7 @@ Interestingly enough, if we look at the demo, the Legendre approximation for $\s
     * Prefix inverse trigonometric functions with ```-a```, e.g. write $\arcsin(x)$ as ```asin(x)```
     * For $e^x$, write ```exp(x)```
     * For $n^x$, write ```n**x```
+    * For $\ln(x)$, wrtie ```log(x)```
     * Make sure that the function is defined on the given interval
     * You may need to modify some of the formatting in Desmos after
 * Polynomial approximations
@@ -170,3 +171,4 @@ Interestingly enough, if we look at the demo, the Legendre approximation for $\s
    py -m http.server 8000
 7. Visit ```http://localhost:8000/web/desmos.html``` to view your approximations
 8. To stop the local server, press ```Ctrl + C```
+
